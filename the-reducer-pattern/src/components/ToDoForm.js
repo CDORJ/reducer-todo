@@ -1,8 +1,27 @@
-const ToDoForm = () => {
+import React, { useState } from "react";
+
+const ToDoForm = ({dispatch}) => {
+    const [task, setTask] = useState("")
+    
+    const addListItem = (e) => {
+        e.preventDefault();
+        dispatch({
+            type: "ADD",
+            payload: task
+        });
+        setTask("")
+      }
+
+    const inputText = (e) => {
+        setTask(e.target.value)
+    }
+
+      
     return (
-     <div>
-         This is the to do form
-     </div>
+        <form>
+            <input type="text" value={task} onChange={inputText}></input>
+            <button onClick={addListItem} >Add</button>
+        </form>
     ) 
  }
  

@@ -6,16 +6,13 @@ import ToDoList from './components/ToDoList'
 import ToDoForm from './components/ToDoForm'
 
 function App() {
-  const [toDo, dispatch] = useReducer(toDoReducer, initialState)
-  
+  const [toDo, dispatch] = useReducer(toDoReducer, initialState);
+
   return (
     <div className="App">
-     <form>
-       <input type="text"></input>
-       <button>Add</button>
-     </form>
-     <ToDoList toDo={toDo}/>
-     <ToDoForm />
+      <h3>This is my to-do list</h3> 
+      <ToDoList toDo={toDo.toDos} dispatch={dispatch}/>
+      <ToDoForm dispatch={dispatch} />
     </div>
   );
 }

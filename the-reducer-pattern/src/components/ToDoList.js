@@ -1,14 +1,22 @@
- const ToDoList = (props) => {
-    console.log("props from ToDoList ",props.toDo.toDos)
+import React from "react"; 
+ 
+ const ToDoList = ({toDo, dispatch}) => {
+   
+   /* const toggleCompleted = (e) => {
+      dispatch({
+         type: "TOGGLE_ITEM",
+         payload: e.target.key
+      })
+   } */
+   
    return (
-
-    // <ul>
-    //     {/* {props.todo.map((toDos) =>(
-    //         <li key={toDos.id}>{toDos.name}</li>
-    //     ))} *
-    
-    // </ul>
-    <></>
+      <ul>
+         {toDo.map((item)=>(
+            <li key={item.id} /* onClick={toggleCompleted} */>
+               {item.name}
+            </li>
+         ))}
+      </ul>
    );
 };
 
