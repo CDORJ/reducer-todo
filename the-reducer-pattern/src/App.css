@@ -1,11 +1,9 @@
 .App {
   text-align: center;
-  background: #209cee;
-  padding: 30px;
-  height: 100vh;
+
 }
 
-.todo-list {
+/* .todo-list {
   text-align: center;
   background: #e8e8e8;
   border-radius: 4px;
@@ -23,4 +21,4 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
