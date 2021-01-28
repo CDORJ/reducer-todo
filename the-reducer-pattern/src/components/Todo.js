@@ -2,7 +2,7 @@ import React from "react";
 
 const Todo = ({ todo, id, completeTodo, removeTodo }) => {
   return (
-    <div style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
+    <div className='todo' style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
       {todo.itemName}
 
       <div>

@@ -11,7 +11,6 @@ function App() {
 
   // Method to add a new todo to the list
   const addTodo = text => {
-    
     dispatch({
       type: "ADD_TODOS",
       payload: text,
@@ -39,7 +38,7 @@ function App() {
       <p>My Really Dumb Todo List</p>
       <TodoForm addTodo={addTodo} />
       <hr />
-      <div>
+      <div className='todo-list'>
         {state.list.map((todo) => (
           <Todo
             key={todo.id}
