@@ -6,14 +6,10 @@ import todoReducer, { initialState } from "./reducers/todoReducer";
 
 function App() {
   const [todo, dispatch] = useReducer(todoReducer, initialState);
-
   return (
     <div className="App">
-      {todo.todoList.map((todos) => (
-        <p>{todos.todo}</p>
-      ))}
-      <TodoForm />
-      <TodoList />
+      <TodoForm dispatch={dispatch} />
+      <TodoList todo={todo} dispatch={dispatch}/>
     </div>
   );
 }

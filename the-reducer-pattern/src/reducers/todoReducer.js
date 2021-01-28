@@ -22,7 +22,17 @@ export const initialState = {
 const todoReducer = (state, action) => {
   switch (action.type) {
     case "ADD":
-      return { ...state, };
+      return {
+        ...state,
+        todoList: [
+          ...state.todoList,
+          {
+            todo: action.payload,
+            isCompleted: false,
+            id: Date.now(),
+          },
+        ],
+      };
     case "REMOVE":
       return { ...state };
     case "CLEAR_COMPLETED":
@@ -30,7 +40,21 @@ const todoReducer = (state, action) => {
     case "CLEAR_ALL":
       return { ...state };
     case "TOGGLE_COMPLETED":
-      return { ...state };
+      /* Map through state.todoList and search for the who's task.id matches the action.payload. Then, change that task's isCompleted to be the opposite of what it is, using "!" */
+      return {
+        ...state,
+        todoList: state.todoList.map((task) => {
+          if (task.id === action.payload) {
+            return {
+              todo: task.todo,
+              isCompleted: !task.isCompleted,
+              id: task.id,
+            };
+          } else {
+            return task;
+          }
+        }),
+      };
     default:
       return state;
   }

@@ -1,14 +1,24 @@
 import React from "react";
 
-const TodoList = () => {
+const TodoList = (props) => {
+  const todo = props.todo;
+  const dispatch = props.dispatch;
+
+  const handleClick = (e) => {
+    dispatch({
+      type: "TOGGLE_COMPLETED",
+      payload: e.target.id,
+    });
+  };
+
   return (
-    /*   <ul>
-      <li>This is the first shit</li>
-      <li>This is the second shit</li>
-      <li>This is the third shit</li>
-      <li>This is the fourth shit</li>
-    </ul> */
-    <></>
+    <div>
+      {todo.todoList.map((task) => (
+        <p key={task.id} id={task.id} onClick={handleClick}>
+          {task.todo}
+        </p>
+      ))}
+    </div>
   );
 };
 
