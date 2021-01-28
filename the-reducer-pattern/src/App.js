@@ -1,15 +1,16 @@
 import React, { useReducer } from "react";
-import "./App.css";
 import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm";
 import { initialState, todoReducer } from "./reducers/todoReducer";
+import "./App.css";
+
 
 function App() {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   console.log("cd: App.js: App: initial state in App: ", state);
 
   // Method to add a new todo to the list
-  const addTodo = (text) => {
+  const addTodo = text => {
     dispatch({
       type: "ADD_TODOS",
       payload: text,
@@ -17,10 +18,10 @@ function App() {
   };
 
   // Method to complete the todo item
-  const completeTodo = (id) => {
+  const completeTodo = id => {
     dispatch({
       type: "COMP_TODO",
-      payload: id,
+      payload: id
     });
   };
 

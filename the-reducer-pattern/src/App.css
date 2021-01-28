@@ -1,7 +1,17 @@
 .App {
   text-align: center;
+  background: #209cee;
+  padding: 30px;
+  height: 100vh;
 }
 
+.todo-list {
+  text-align: center;
+  background: #e8e8e8;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 400px;
+}
 
 .todo {
   background: #fff;
