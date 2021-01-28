@@ -46,9 +46,8 @@ const todoReducer = (state, action) => {
         todoList: state.todoList.map((task) => {
           if (task.id === action.payload) {
             return {
-              todo: task.todo,
+              ...task,
               isCompleted: !task.isCompleted,
-              id: task.id,
             };
           } else {
             return task;
