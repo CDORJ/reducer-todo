@@ -19,34 +19,29 @@ export const todoReducer = (state, action) => {
         ...state,
         list: [...state.list, newTodo],
       };
-      case "COMP_TODOS":
-        const compTodos = state.list.map((task) => {
-          if (task.id === action.payload) {
-            return {
-              ...task,
-              isCompleted: !task.isCompleted,
-            };
-          }
-          return task;
-        });
-        return {
-          ...state,
-          list: compTodos
+    case "COMP_TODOS":
+      const compTodos = state.list.map((task) => {
+        if (task.id === action.payload) {
+          return {
+            ...task,
+            isCompleted: !task.isCompleted,
+          };
         }
-    // case "COMP_TODO":
-    //   const compTodos = state.list.map((task) => {
-    //     if (task.id === action.payload) {
-    //       return {
-    //         ...task,
-    //         isCompleted: !task.isCompleted,
-    //       };
-    //     }
-    //     return task;
-    //   });
-    //   return {
-    //     ...state,
-    //     list: compTodos
-    //   };
+        return task;
+      });
+      return {
+        ...state,
+        list: compTodos,
+      };
+    case "REMOVE_TODO":
+      const todoListWithRemovedTask = state.list.filter((task) => {
+        return task.id !== action.payload;
+      });
+      return {
+        ...state,
+        list: todoListWithRemovedTask,
+      };
+
     default:
       return state;
   }

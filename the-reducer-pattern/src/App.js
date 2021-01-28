@@ -11,6 +11,7 @@ function App() {
 
   // Method to add a new todo to the list
   const addTodo = text => {
+    
     dispatch({
       type: "ADD_TODOS",
       payload: text,
@@ -20,9 +21,17 @@ function App() {
   // Method to complete the todo item
   const completeTodo = id => {
     dispatch({
-      type: "COMP_TODO",
+      type: "COMP_TODOS",
       payload: id
     });
+  };
+
+  // Method to remove a completed todo item
+  const removeTodo = id => {
+    dispatch({
+      type: "REMOVE_TODO",
+      payload: id
+    })
   };
 
   return (
@@ -31,13 +40,13 @@ function App() {
       <TodoForm addTodo={addTodo} />
       <hr />
       <div>
-        {initialState.list.map((todo) => (
+        {state.list.map((todo) => (
           <Todo
             key={todo.id}
             id={todo.id}
             todo={todo}
             completeTodo={completeTodo}
-            /* removeTodo={removeTodo} */
+            removeTodo={removeTodo}
           />
         ))}
       </div>
