@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 
-const ToDoForm = ({dispatch}) => {
-    const [task, setTask] = useState("")
+const ToDoForm = (props) => {
+    const [newTask, setNewTask] = useState("")
     
-    const addListItem = (e) => {
+    // const addListItem = (e) => {
+    //     e.preventDefault();
+    //     dispatch({
+    //         type: "ADD",
+    //         payload: task
+    //     });
+    //     setTask("")
+    //   }
+
+    // const inputText = (e) => {
+    //     setTask(e.target.value)
+    // }
+
+    const handleChange = (e) => {
         e.preventDefault();
-        dispatch({
-            type: "ADD",
-            payload: task
-        });
-        setTask("")
-      }
-
-    const inputText = (e) => {
-        setTask(e.target.value)
-    }
-
+        setNewTask(e.target.value);
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        props.dispatch({ type: "ADD", payload: newTask });
+        setNewTask("");
+      };
       
     return (
-        <form>
-            <input type="text" value={task} onChange={inputText}></input>
-            <button onClick={addListItem} >Add</button>
+        <form onSubmit={handleSubmit}>
+            <input type="text" value={newTask} onChange={handleChange}></input>
+            <button>Add</button>
         </form>
     ) 
  }

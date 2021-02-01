@@ -30,15 +30,36 @@ export const toDoReducer = (state, action) => {
                         isCompleted: false
                     }
                 ]
-            }
+            };
+            case "REMOVE":
+            return {...state };
+            case "CLEAR_COMPLETED":
+                return { ...state };
+                case "CLEAR_ALL":
+                    return {...state};
         case "TOGGLE_ITEM":
             /* Map over the tasks to see if the action.payload === the item's id. If yes, then we want to change isCompleted to opposite of what it currently is. If no, return the unchanged task. */
             return {
+                ...state,
+                toDos: state.toDos.map((task) => {
+                    if(task.id === action.payload) {
+                        return {
+                            task,
+                            isCompleted: !task.isCompleted,
+                        };
+                    } else {
+                        return task
+                    }
+                    }),
+                };
+                default: 
+                return state;
             }
-        case "CLEAR": 
-            return {...state, }
+        };
+//         case "CLEAR": 
+//             return {...state, }
         
             
-    default:
-        return state
-}}
+//     default:
+//         return state
+// }}

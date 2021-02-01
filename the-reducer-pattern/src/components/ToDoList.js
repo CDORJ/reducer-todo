@@ -1,7 +1,10 @@
 import React from "react"; 
  
- const ToDoList = ({toDo, dispatch}) => {
-   
+ const ToDoList = (props) => {
+    const toDo = props.toDo
+    const dispatch = props.dispatch
+   // const toDoMap = toDo
+   // const dispatchMatch = dispatch
    /* const toggleCompleted = (e) => {
       dispatch({
          type: "TOGGLE_ITEM",
@@ -10,13 +13,22 @@ import React from "react";
    } */
    
    return (
-      <ul>
-         {toDo.map((item)=>(
-            <li key={item.id} /* onClick={toggleCompleted} */>
-               {item.name}
-            </li>
-         ))}
-      </ul>
+      <div style={{ textDecoration: toDo.toDos.isCompleted ? "line-through" : "" }}>
+      {toDo.toDos.map((task) => (
+        <p
+          key={task.id}
+         onClick={() => {
+         dispatch({
+         type: "TOGGLE_ITEM",
+         payload: task.id,
+         });
+         }}
+       
+        >
+          {task.name}
+        </p>
+      ))}
+    </div>
    );
 };
 

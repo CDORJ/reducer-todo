@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <h3>This is my to-do list</h3> 
-      <ToDoList toDo={toDo.toDos} dispatch={dispatch}/>
+      <ToDoList toDo={toDo} dispatch={dispatch}/>
       <ToDoForm dispatch={dispatch} />
     </div>
   );
