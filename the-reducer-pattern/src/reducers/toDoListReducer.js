@@ -47,8 +47,9 @@ export const toDoListReducer = (state, action) => {
             return {
                 // again, always copy entire state object
                 ...state,
-            listOfTodos: state.listOfTodos.map(task => { // if this isn't the todo item we're looking for, leave it unchanged
+            listOfTodos: state.listOfTodos.map(task => { 
                 if (task.id !== action.payload) {
+        // if this isn't the todo item we're looking for, leave it unchanged
                     return task
                 }
                 return {

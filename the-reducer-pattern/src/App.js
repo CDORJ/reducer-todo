@@ -15,7 +15,7 @@ function App() {
       DAILY TO-DO
     </h1>
     <ToDoList toDoListItems={state.listOfTodos}/>
-    <ToDoListForm />
+    <ToDoListForm dispatch={dispatch}/>
     </div>
   );
 }
