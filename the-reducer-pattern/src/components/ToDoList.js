@@ -17,7 +17,7 @@ import '../index.css'
           {toDoListItems.map((task) => (
               // always need a key when mapping, id is unique to each item
             <p 
-              onClick={() => {
+              onDoubleClick={() => {
                 dispatch({
                   type: "TOGGLE_TODO",
                   payload: task.id,
