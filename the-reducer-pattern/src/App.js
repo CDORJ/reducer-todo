@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
 import { toDoListReducer, initialState } from './reducers/toDoListReducer';
+import ToDoList from './components/ToDoList';
+import ToDoListForm from './components/ToDoListForm';
 
 // "The first and most important thing to understand about a reducer is that it will always only return one value. The job of a reducer is to reduce. That one value can be a number, a string, an array or an object, but it will always only be one. Reducers are really great for a lot of things, but they’re especially useful for applying a bit of logic to a group of values and ending up with another single result." "
 
@@ -9,12 +11,11 @@ function App() {
   // console.log(state.listOfTodos)
   return (
     <div style={{textAlign: "center"}}>
-          {state.listOfTodos.map((task) => (
-            <p key={task.id}>
-              {task.taskName}
-            </p>
-
-          ))}
+    <h1>
+      DAILY TO-DO
+    </h1>
+    <ToDoList toDoListItems={state.listOfTodos}/>
+    <ToDoListForm />
     </div>
   );
 }
