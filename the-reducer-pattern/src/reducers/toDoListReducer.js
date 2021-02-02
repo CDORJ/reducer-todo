@@ -1,5 +1,12 @@
 // helpful website
 // https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow
+// https://www.educative.io/blog/react-hooks-tutorial-todo-list
+// https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers
+// https://www.autodraw.com/
+
+// breaking up components:
+// https://reactjs.org/docs/thinking-in-react.html
+// https://frontarm.com/james-k-nelson/how-should-i-separate-components/
 
 // state of the application living in the reducer file
 
