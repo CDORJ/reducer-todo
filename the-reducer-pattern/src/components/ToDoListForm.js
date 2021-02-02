@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ToDoListForm = ({ dispatch }) => {
+const ToDoListForm = ({ items, dispatch }) => {
   const [newInput, setNewInput] = useState("");
 
   // what happens when the user types into the input field:
@@ -23,6 +23,15 @@ const ToDoListForm = ({ dispatch }) => {
     setNewInput(""); // after adding, return the input text field to an empty state
   };
 
+  // remove the completed items 
+  const removeCompleted = (e) => {
+      e.preventDefault();
+    dispatch({
+        type: "REMOVE_COMPLETED",
+    })
+  }
+
+  
   return (
     <div>
       <br></br>
@@ -30,7 +39,10 @@ const ToDoListForm = ({ dispatch }) => {
         <input type="text" value={newInput} onChange={inputValue}></input>
         <button>Add</button>
       </form>
-      <button>Remove completed</button>
+      
+      {/* // on click send to removeCompleted function which sends to dispatch */}
+      <button onClick={removeCompleted}>Remove completed</button>
+     
     </div>
   );
 };

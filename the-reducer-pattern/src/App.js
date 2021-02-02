@@ -12,7 +12,7 @@ function App() {
   // console.log(state.listOfTodos)
   return (
     <div style={{ textAlign: "center" }}>
-      <h1>DAILY TO-DO</h1>
+      <h1>daily to-do</h1>
       <ToDoList toDoListItems={state.listOfTodos} dispatch={dispatch} />
       <ToDoListForm dispatch={dispatch} />
     </div>
