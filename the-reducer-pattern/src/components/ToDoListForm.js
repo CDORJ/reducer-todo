@@ -33,8 +33,7 @@ const ToDoListForm = ({ items, dispatch }) => {
 
   
   return (
-    <div>
-      <br></br>
+    <div className="input">
       <form onSubmit={handleSubmit}>
         <input type="text" value={newInput} onChange={inputValue}></input>
         <button>Add</button>

@@ -11,7 +11,7 @@ function App() {
   const [state, dispatch] = useReducer(toDoListReducer, initialState); // reducer, and initial state
   // console.log(state.listOfTodos)
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="main" style={{ textAlign: "center" }}>
       <h1>daily to-do</h1>
       <ToDoList toDoListItems={state.listOfTodos} dispatch={dispatch} />
       <ToDoListForm dispatch={dispatch} />

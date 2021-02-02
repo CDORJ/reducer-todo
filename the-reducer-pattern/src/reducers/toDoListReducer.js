@@ -63,18 +63,11 @@ export const toDoListReducer = (state, action) => {
       };
     }
 
-    // const removeCompleted = () => {
-    //     let filtered = items.filter(task => {
-    //         return !items.isCompleted;
-    //     });
-    //     setListOfItems(filtered);
-    // }
-
-    case "REMOVE_COMPLETED": 
-            return {
-                ...state,
-                listOfTodos: state.listOfTodos.filter((task) => !task.isCompleted),
-            }
+    case "REMOVE_COMPLETED":
+      return {
+        ...state,
+        listOfTodos: state.listOfTodos.filter((task) => !task.isCompleted), // returns tasks that have the boolean true
+      };
 
     default:
       // if the reducer doesn't recognize the action type, or doesn't care about this specific action, return the existing state unchanged

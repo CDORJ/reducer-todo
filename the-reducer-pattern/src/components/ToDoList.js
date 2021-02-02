@@ -23,7 +23,7 @@ const ToDoList = ({ toDoListItems, dispatch }) => {
           className={task.isCompleted ? "strike" : ""}
           key={task.id}
         >
-          {task.taskName.toString().toLowerCase()}
+          {"♡" + task.taskName.toString().toLowerCase()}
         </p>
       ))}
     </div>
